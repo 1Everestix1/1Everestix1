@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасность | HomeScript</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+    <custom-navbar></custom-navbar>
+    <div class="flex">
+        <custom-sidebar></custom-sidebar>
+        <main class="flex-1 p-6 ml-0 md:ml-64 transition-all duration-300">
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-gray-800">Безопасность</h1>
+                <p class="text-gray-600 mt-2">Укрепите защиту вашего сервера с помощью скриптов для автоматической настройки брандмауэров, VPN, систем обнаружения вторжений (IDS/IPS) и других важных инструментов безопасности.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Fail2Ban Card -->
+                <div class="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300" style="background-color: var(--card-bg);">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full" style="background-color: rgba(239, 68, 68, 0.1);">
+                                <i data-feather="shield" style="color: #f87171; width: 24px; height: 24px;"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold ml-3" style="color: var(--text-primary);">Fail2Ban</h2>
+                        </div>
+                        <p class="mb-4" style="color: var(--text-secondary);">Система защиты от брутфорс-атак с автоматической настройкой правил и уведомлений</p>
+                        <a href="/script/fail2ban.html" class="font-medium inline-flex items-center" style="color: #f87171;">
+                            Подробнее
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <custom-footer></custom-footer>
+    <script src="/components/navbar.js"></script>
+    <script src="/components/sidebar.js"></script>
+    <script src="/components/footer.js"></script>
+    <script>
+        setTimeout(() => {
+            if (window.feather) {
+                feather.replace();
+            }
+        }, 100);
+    </script>
+    <script src="/script.js"></script>
+</body>
+</html>

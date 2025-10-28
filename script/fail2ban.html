@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fail2Ban Proxmox - HomeScript</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#3b82f6',
+              secondary: '#10b981',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body>
+    <custom-navbar></custom-navbar>
+    <div class="flex">
+        <custom-sidebar></custom-sidebar>
+        <main class="flex-1 p-6">
+            <div class="bg-white shadow-md rounded-lg p-6" style="background-color: var(--bg-secondary);">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center">
+                        <div style="width:64px;height:64px;border-radius:12px;background:#2b2b44;display:flex;align-items:center;justify-content:center;margin-right:16px;">
+                            <span style="font-size:28px">🔒</span>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold" style="color: var(--text-primary);">Fail2Ban для Proxmox</h1>
+                            <div style="color: var(--text-secondary); font-size:0.9rem; margin-top:6px;">Автоматическая защита от перебора паролей и блокировка вредоносных IP</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="color: var(--text-secondary); line-height:1.6; margin-bottom:1rem;">
+                    Fail2Ban — это легковесный инструмент для защиты сервера от атак методом перебора (brute-force). Скрипт автоматически устанавливает
+                    и настраивает службы, добавляет базовые фильтры и правила блокировки для SSH и веб‑сервисов, а также добавляет уведомления в системный лог.
+                </div>
+
+                <div class="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div style="background:var(--card-bg);padding:12px;border-radius:8px;border:1px solid var(--border-color);">
+                        <div style="color: var(--text-primary); font-weight:700;">Поддерживаемые ОС</div>
+                        <div style="color: var(--text-secondary); margin-top:6px;">Proxmox VE 7.X - 8.X</div>
+                    </div>
+                    <div style="background:var(--card-bg);padding:12px;border-radius:8px;border:1px solid var(--border-color);">
+                        <div style="color: var(--text-primary); font-weight:700;">Режим установки</div>
+                        <div style="color: var(--text-secondary); margin-top:6px;">Автоматический скрипт</div>
+                    </div>
+                    <div style="background:var(--card-bg);padding:12px;border-radius:8px;border:1px solid var(--border-color);">
+                        <div style="color: var(--text-primary); font-weight:700;">Рекомендуется</div>
+                        <div style="color: var(--text-secondary); margin-top:6px;">Тестировать на стенде перед продакшеном</div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:1rem;">
+                    <div style="background: rgba(59,130,246,0.06); padding:12px; border-radius:8px; border:1px solid rgba(59,130,246,0.08); color:var(--text-primary);">Дополнительная информация: <a href="#" style="color:#60a5fa; text-decoration:underline;">Документация по Fail2Ban</a></div>
+                </div>
+
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold mb-2" style="color: var(--text-primary);">Как установить</h2>
+                    <div style="background:var(--card-bg);border:1px solid var(--border-color);padding:12px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;">
+                        <pre style="white-space:pre-wrap;word-break:break-word;color:var(--text-primary);flex-grow:1;">bash -c "$(wget -qLO - https://example.com/fail2ban.sh)"</pre>
+                        <button onclick="copyToClipboard(`bash -c &quot;$(wget -qLO - https://example.com/fail2ban.sh)&quot;`)" class="ml-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition-colors">
+                            <i data-feather="copy" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                <div class="mb-6">
+                    <h3 class="font-semibold" style="color: var(--text-primary);">Расположение конфигурационного файла</h3>
+                    <div style="background:var(--card-bg);padding:12px;border-radius:8px;border:1px solid var(--border-color);margin-top:8px;color:var(--text-primary);">/etc/fail2ban/jail.local</div>
+                </div>
+
+
+            </div>
+        </main>
+    </div>
+
+    <custom-footer></custom-footer>
+
+    <script src="../components/navbar.js"></script>
+    <script src="../components/sidebar.js"></script>
+    <script src="../components/footer.js"></script>
+    <script>
+        setTimeout(() => {
+            if (window.feather) {
+                feather.replace();
+            }
+        }, 100);
+    </script>
+    <script src="../script.js"></script>
+</body>
+</html>

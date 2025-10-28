@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хранилище | HomeScript</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🚀%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+    <custom-navbar></custom-navbar>
+    <div class="flex">
+        <custom-sidebar></custom-sidebar>
+        <main class="flex-1 p-6 ml-0 md:ml-64 transition-all duration-300">
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-gray-800">Хранилище</h1>
+                <p class="text-gray-600 mt-2">Скрипты для быстрой настройки сетевых файловых систем и хранилищ. Легко разверните NFS, Samba, iSCSI и другие решения для централизованного хранения данных.</p>
+            </div>
+            <!-- Content for storage scripts goes here -->
+        </main>
+    </div>
+    <custom-footer></custom-footer>
+    <script src="/components/navbar.js"></script>
+    <script src="/components/sidebar.js"></script>
+    <script src="/components/footer.js"></script>
+    <script>
+        setTimeout(() => {
+            if (window.feather) {
+                feather.replace();
+            }
+        }, 100);
+    </script>
+    <script src="/script.js"></script>
+</body>
+</html>

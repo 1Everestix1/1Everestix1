@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Scripts Hub - Скрипты для Proxmox</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#3b82f6',
+              secondary: '#10b981',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body>
+    <custom-navbar></custom-navbar>
+    <div class="flex">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <custom-sidebar></custom-sidebar>
+        <main class="flex-1 p-6 ml-0 md:ml-64 transition-all duration-300">
+            <!-- Hero -->
+            <section class="hero">
+                <div class="stars" aria-hidden="true"></div>
+                <div class="hero-inner text-center">
+                    
+                    <h1 class="hero-title text-white text-4xl md:text-6xl lg:text-8xl">Управляйте HomeLab<br class="hidden md:inline">без лишних усилий</h1>
+                    <p class="hero-sub text-gray-300 mt-4">Открытая коллекция проверенных скриптов и шаблонов для Proxmox VE — от установки Docker до готовых LXC-шаблонов. Быстро разверните сервисы, автоматизируйте рутинные задачи и защитите инфраструктуру.</p>
+                    <div class="mt-6">
+                        <a href="/category/" class="hero-cta bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg text-lg">Просмотреть сценарии</a>
+                    </div>
+                </div>
+            </section>
+                <!-- Новая секция: О проекте -->
+                <section class="mb-8 bg-white shadow-sm rounded-lg p-6" style="background-color: var(--bg-secondary);">
+                    <h2 class="text-2xl font-semibold mb-3" style="color: var(--text-primary);">О проекте Home Scripts Hub</h2>
+                    <p class="mb-3" style="color: var(--text-secondary);">
+                        Home Scripts Hub — открытая коллекция проверенных скриптов, шаблонов и небольших утилит для Proxmox VE. Наша цель —
+                        помочь администраторам и энтузиастам быстро развернуть сервисы, автоматизировать рутинные операции и сократить время
+                        на поддержку инфраструктуры.
+                    </p>
+                    <p class="mb-3" style="color: var(--text-secondary);">
+                        Мы собираем готовые решения — от инсталляторов Docker и конфигураций баз данных до оптимизированных LXC-шаблонов и
+                        скриптов для бэкапа и мониторинга. Каждый набор снабжён краткой документацией и рекомендациями по использованию.
+                    </p>
+                    <ul class="list-disc ml-5 mb-3" style="color: var(--text-secondary);">
+                        <li>Автоматические установки популярных сервисов (Docker, базы данных, мониторинг)</li>
+                        <li>Оптимизированные LXC-шаблоны и контейнерные конфигурации</li>
+                        <li>Инструменты для резервного копирования, обновлений и автоматизации задач</li>
+                    </ul>
+                    <p class="text-sm" style="color: var(--text-secondary);">
+                        Подробная документация и исходники доступны в проекте community-scripts: <a href="https://community-scripts.github.io/Proxmox/" class="text-purple-400 underline" target="_blank" rel="noopener">community-scripts / Proxmox</a>
+                    </p>
+                </section>
+
+                <!-- FAQ -->
+                <section class="mb-8 bg-white shadow-sm rounded-lg p-6" style="background-color: var(--bg-secondary);">
+                    <h2 class="text-2xl font-semibold mb-3" style="color: var(--text-primary);">Часто задаваемые вопросы</h2>
+                    <div class="mb-4">
+                        <h3 class="font-medium" style="color: var(--text-primary);">Что такое Home Scripts Hub?</h3>
+                        <p style="color: var(--text-secondary);">Home Scripts Hub — сообщество и библиотека готовых решений для Proxmox VE. Мы собираем проверенные скрипты и шаблоны, дополняем их описаниями и инструкциями, чтобы сэкономить время администраторов.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-medium" style="color: var(--text-primary);">Насколько безопасно использовать скрипты?</h3>
+                        <p style="color: var(--text-secondary);">Мы публикуем скрипты с базовой проверкой и документацией, но всегда рекомендуем изучать код перед запуском. Для продакшен‑окружений используйте тестовые стенды и делайте резервные копии.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-medium" style="color: var(--text-primary);">Совместимость с Proxmox VE</h3>
+                        <p style="color: var(--text-secondary);">Многие скрипты совместимы с текущими версиями Proxmox VE и популярными дистрибутивами Linux. В карточке каждого скрипта указаны требования и поддерживаемые платформы.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-medium" style="color: var(--text-primary);">Как внести свой скрипт?</h3>
+                        <p style="color: var(--text-secondary);">Перейдите на страницу «Внести вклад»: там описан формат, требования и процесс отправки пулл‑реквеста. Приветствуются небольшие, документированные и безопасные решения.</p>
+                    </div>
+                </section>
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h2 class="text-2xl font-semibold" style="color: var(--text-primary);">Категории скриптов</h2>
+                    <p style="color: var(--text-secondary);">Выберите нужный раздел</p>
+                </div>
+                <a href="/popular.html" class="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center">
+                    Все популярные
+                    <i data-feather="arrow-right" class="ml-1"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Сеть -->
+                <div class="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300" style="background-color: var(--card-bg);">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i data-feather="globe" style="color: #60a5fa; width: 24px; height: 24px;"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold ml-3" style="color: var(--text-primary);">Сеть</h2>
+                        </div>
+                        <p class="mb-4" style="color: var(--text-secondary);">VPN, DNS, прокси и сетевые службы для защищенного доступа и маршрутизации</p>
+                        <a href="category/network.html" class="font-medium inline-flex items-center" style="color: #60a5fa;">
+                            Просмотреть скрипты
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ОС -->
+                <div class="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300" style="background-color: var(--card-bg);">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full" style="background-color: rgba(239, 68, 68, 0.1);">
+                                <i data-feather="cpu" style="color: #f87171; width: 24px; height: 24px;"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold ml-3" style="color: var(--text-primary);">Операционные системы</h2>
+                        </div>
+                        <p class="mb-4" style="color: var(--text-secondary);">Оптимизация и настройка Linux-систем, драйверы и системные утилиты</p>
+                        <a href="category/os.html" class="font-medium inline-flex items-center" style="color: #f87171;">
+                            Просмотреть скрипты
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Виртуализация -->
+                <div class="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300" style="background-color: var(--card-bg);">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full" style="background-color: rgba(16, 185, 129, 0.1);">
+                                <i data-feather="layers" style="color: #34d399;"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold ml-3" style="color: var(--text-primary);">Виртуализация</h2>
+                        </div>
+                        <p class="mb-4" style="color: var(--text-secondary);">Docker, LXC, KVM и инструменты управления виртуальными средами</p>
+                        <a href="/category/virtualization.html" class="font-medium inline-flex items-center" style="color: #34d399;">
+                            Просмотреть скрипты
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Безопасность -->
+                <div class="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300" style="background-color: var(--card-bg);">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full" style="background-color: rgba(245, 158, 11, 0.1);">
+                                <i data-feather="shield" style="color: #fbbF24;"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold ml-3" style="color: var(--text-primary);">Безопасность</h2>
+                        </div>
+                        <p class="mb-4" style="color: var(--text-secondary);">Защита от атак, файерволы, IDS/IPS, SSL и шифрование</p>
+                        <a href="/category/security.html" class="font-medium inline-flex items-center" style="color: #fbbF24;">
+                            Просмотреть скрипты
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Базы данных -->
+                <div class="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300" style="background-color: var(--card-bg);">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full" style="background-color: rgba(139, 92, 246, 0.1);">
+                                <i data-feather="database" style="color: #a78bfa;"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold ml-3" style="color: var(--text-primary);">Базы данных</h2>
+                        </div>
+                        <p class="mb-4" style="color: var(--text-secondary);">MySQL, PostgreSQL, MongoDB, Redis и другие хранилища данных</p>
+                        <a href="/category/database.html" class="font-medium inline-flex items-center" style="color: #a78bfa;">
+                            Просмотреть скрипты
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Пользовательские -->
+                <div class="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300" style="background-color: var(--card-bg);">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full" style="background-color: rgba(34, 197, 94, 0.1);">
+                                <i data-feather="code" style="color: #4ade80;"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold ml-3" style="color: var(--text-primary);">Пользовательские</h2>
+                        </div>
+                        <p class="mb-4" style="color: var(--text-secondary);">Специальные скрипты и решения от сообщества</p>
+                        <a href="/category/custom.html" class="font-medium inline-flex items-center" style="color: #4ade80;">
+                            Просмотреть скрипты
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="text-2xl font-semibold" style="color: var(--text-primary);">Новые скрипты</h2>
+                        <p style="color: var(--text-secondary);">Свежие добавления в коллекцию</p>
+                    </div>
+                    <a href="/new.html" class="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center">
+                        Все новые
+                        <i data-feather="arrow-right" class="ml-1"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300" style="background-color: var(--card-bg);">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="p-3 rounded-full" style="background-color: rgba(96, 165, 250, 0.1);">
+                                    <i data-feather="shield" style="color: #60a5fa;"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold ml-3" style="color: var(--text-primary);">Fail2Ban Proxmox</h3>
+                            </div>
+                            <p class="mb-4 text-sm" style="color: var(--text-secondary);">Автоматическая защита от bruteforce атак</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs" style="color: var(--text-secondary);">Добавлен 2 дня назад</span>
+                                <a href="/script/fail2ban.html" class="text-sm font-medium" style="color: #60a5fa;">
+                                    Подробнее
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat similar blocks for other new scripts -->
+                </div>
+            </div>
+        </main>
+</div>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/sidebar.js"></script>
+    <script src="components/footer.js"></script>
+    <script>
+        // Initialize feather icons immediately after components load
+        setTimeout(() => {
+            if (window.feather) {
+                feather.replace();
+            }
+        }, 100);
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
